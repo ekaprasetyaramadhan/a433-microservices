@@ -1,0 +1,16 @@
+
+> docker-software-delivery@1.0.0 start /app
+> node ./bin/www
+
+NODE_ENV: production
+Connected to database
+[0mGET / [36m304 [0m256.392 ms - -[0m
+[0mGET /javascripts/dist/dist.min.js [36m304 [0m2.961 ms - -[0m
+[0mGET /stylesheets/style.css [32m200 [0m51.504 ms - 519[0m
+[0mGET /api [32m200 [0m19.550 ms - 99[0m
+[0mGET / [36m304 [0m1.097 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.182 ms - -[0m
+[0mGET /javascripts/dist/dist.min.js [36m304 [0m2.408 ms - -[0m
+[0mGET /api [36m304 [0m5.731 ms - -[0m
+[0mPOST /api [32m201 [0m21.458 ms - 48[0m
+[0mPOST /api [32m201 [0m2.053 ms - 48[0m
