@@ -3,24 +3,19 @@ version: "3.8"
 services:
   # Service untuk item-app
   item-app:
-    image: item-app:v1 # Menggunakan image item-app yang sudah di-build dan di-push ke Docker Hub (atau GitHub Packages)
+    image: ekaramadhan35/item-app:v1 # Menggunakan image item-app yang sudah di-build dan di-push ke Docker Hub (atau GitHub Packages)
     ports:
       - "80:8080" # Port mapping: Host port 80 -> Container port 8080
     depends_on:
       - item-db # Pastikan item-app hanya berjalan setelah item-db diluncurkan
-    environment:
-      - DB_HOST=item-db # Mengatur variabel lingkungan DB_HOST ke nama service item-db
     restart: always # Restart container jika terhenti atau gagal
-    volumes:
-      - ./logs:/app/logs # Mengaitkan folder logs di host dengan folder logs di container
-    command: ["sh", "-c", "npm start > /app/logs/log.txt 2>&1"] # Menyimpan logs ke /app/logs/log.txt di container
 
   # Service untuk item-db (MongoDB)
   item-db:
     image: mongo:3 # Menggunakan image mongo versi 3 dari Docker Hub
-    volumes:
-      - app-db:/data/db # Menggunakan volume app-db untuk menyimpan data MongoDB
     restart: always # Restart container jika terhenti atau gagal
+    volumes:
+      - app-db:/data/db # Menggunakan volume app-db untuk menyimpan data MongoDB secara persisten
 
 # Definisi volume untuk menyimpan data MongoDB secara persisten
 volumes:
